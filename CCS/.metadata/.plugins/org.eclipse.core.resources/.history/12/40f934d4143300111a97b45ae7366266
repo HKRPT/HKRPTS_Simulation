@@ -1,0 +1,15 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+SHELL = cmd.exe
+
+# Each subdirectory must supply rules for building sources it contributes
+Source\ Code/PWM/my_epwm.obj: ../Source\ Code/PWM/my_epwm.c $(GEN_OPTS) | $(GEN_FILES) $(GEN_MISC_FILES)
+	@echo 'Building file: "$<"'
+	@echo 'Invoking: C2000 Compiler'
+	"D:/Ti/LT226/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --fp_mode=relaxed --fp_reassoc=on --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard" --include_path="D:/Ti/c2000/C2000Ware_5_04_00_00/device_support/f2837xd/common/include/" --include_path="D:/Ti/c2000/C2000Ware_5_04_00_00/device_support/f2837xd/headers/include/" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/device" --include_path="D:/Ti/c2000/C2000Ware_5_04_00_00/driverlib/f2837xd/driverlib/" --include_path="D:/Ti/LT226/include" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/Source Code/include" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/Source Code/W5500" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/Source Code/PWM" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/Source Code/modbus" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/Source Code/DIDO" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/Source Code/GlobalVarivables" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/Source Code/CAN/APP" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/Source Code/CAN/lib/CANopen" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/Source Code/CAN/lib/CANopen/DSP" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/Source Code/CAN" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/Source Code/Contorl" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/Source Code/BootLoader" --advice:performance=all --define=DEBUG --define=_DUAL_HEADERS --define=CPU1 --define=_FLASH --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="Source Code/PWM/my_epwm.d_raw" --include_path="D:/li/Simulation/HKRPTS_Simulation/CCS/CodeBoard/F28377_FLASH/syscfg" --obj_directory="Source Code/PWM" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: "$<"'
+	@echo ' '
+
+

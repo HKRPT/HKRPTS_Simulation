@@ -1,0 +1,205 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+SHELL = cmd.exe
+
+CG_TOOL_ROOT := D:/Ti/LT226
+
+GEN_OPTS__FLAG := 
+GEN_CMDS__FLAG := 
+
+ORDERED_OBJS += \
+"./main.obj" \
+"./Library/source/F2837xD_Adc.obj" \
+"./Library/source/F2837xD_CodeStartBranch.obj" \
+"./Library/source/F2837xD_CpuTimers.obj" \
+"./Library/source/F2837xD_DBGIER.obj" \
+"./Library/source/F2837xD_DefaultISR.obj" \
+"./Library/source/F2837xD_Dma.obj" \
+"./Library/source/F2837xD_ECap.obj" \
+"./Library/source/F2837xD_EPwm.obj" \
+"./Library/source/F2837xD_EQep.obj" \
+"./Library/source/F2837xD_Emif.obj" \
+"./Library/source/F2837xD_Gpio.obj" \
+"./Library/source/F2837xD_I2C.obj" \
+"./Library/source/F2837xD_Ipc.obj" \
+"./Library/source/F2837xD_Ipc_Driver.obj" \
+"./Library/source/F2837xD_Ipc_Driver_Lite.obj" \
+"./Library/source/F2837xD_Ipc_Driver_Util.obj" \
+"./Library/source/F2837xD_Mcbsp.obj" \
+"./Library/source/F2837xD_PieCtrl.obj" \
+"./Library/source/F2837xD_PieVect.obj" \
+"./Library/source/F2837xD_SWPrioritizedPieVect.obj" \
+"./Library/source/F2837xD_Sci.obj" \
+"./Library/source/F2837xD_Spi.obj" \
+"./Library/source/F2837xD_SysCtrl.obj" \
+"./Library/source/F2837xD_TempSensorConv.obj" \
+"./Library/source/F2837xD_Upp.obj" \
+"./Library/source/F2837xD_can.obj" \
+"./Library/source/F2837xD_sci_io.obj" \
+"./Library/source/F2837xD_sdfm_drivers.obj" \
+"./Library/source/F2837xD_struct.obj" \
+"./Library/source/F2837xD_usDelay.obj" \
+"./Library/source/device.obj" \
+"../2837x_FLASH_lnk_cpu1.cmd" \
+"../Library/cmd/2837xD_FLASH_lnk_cpu1.cmd" \
+"../Library/cmd/F2837xD_Headers_nonBIOS_cpu1.cmd" \
+$(GEN_CMDS__FLAG) \
+-llibc.a \
+
+-include ../makefile.init
+
+RM := DEL /F
+RMDIR := RMDIR /S/Q
+
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include subdir_vars.mk
+-include Library/cmd/subdir_vars.mk
+-include Library/source/subdir_vars.mk
+-include subdir_rules.mk
+-include Library/cmd/subdir_rules.mk
+-include Library/source/subdir_rules.mk
+-include objects.mk
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(C55_DEPS)),)
+-include $(C55_DEPS)
+endif
+ifneq ($(strip $(C_UPPER_DEPS)),)
+-include $(C_UPPER_DEPS)
+endif
+ifneq ($(strip $(S67_DEPS)),)
+-include $(S67_DEPS)
+endif
+ifneq ($(strip $(S62_DEPS)),)
+-include $(S62_DEPS)
+endif
+ifneq ($(strip $(S_DEPS)),)
+-include $(S_DEPS)
+endif
+ifneq ($(strip $(OPT_DEPS)),)
+-include $(OPT_DEPS)
+endif
+ifneq ($(strip $(C??_DEPS)),)
+-include $(C??_DEPS)
+endif
+ifneq ($(strip $(ASM_UPPER_DEPS)),)
+-include $(ASM_UPPER_DEPS)
+endif
+ifneq ($(strip $(S??_DEPS)),)
+-include $(S??_DEPS)
+endif
+ifneq ($(strip $(C64_DEPS)),)
+-include $(C64_DEPS)
+endif
+ifneq ($(strip $(CXX_DEPS)),)
+-include $(CXX_DEPS)
+endif
+ifneq ($(strip $(S64_DEPS)),)
+-include $(S64_DEPS)
+endif
+ifneq ($(strip $(INO_DEPS)),)
+-include $(INO_DEPS)
+endif
+ifneq ($(strip $(CLA_DEPS)),)
+-include $(CLA_DEPS)
+endif
+ifneq ($(strip $(S55_DEPS)),)
+-include $(S55_DEPS)
+endif
+ifneq ($(strip $(SV7A_DEPS)),)
+-include $(SV7A_DEPS)
+endif
+ifneq ($(strip $(C62_DEPS)),)
+-include $(C62_DEPS)
+endif
+ifneq ($(strip $(C67_DEPS)),)
+-include $(C67_DEPS)
+endif
+ifneq ($(strip $(PDE_DEPS)),)
+-include $(PDE_DEPS)
+endif
+ifneq ($(strip $(K_DEPS)),)
+-include $(K_DEPS)
+endif
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+ifneq ($(strip $(CC_DEPS)),)
+-include $(CC_DEPS)
+endif
+ifneq ($(strip $(C++_DEPS)),)
+-include $(C++_DEPS)
+endif
+ifneq ($(strip $(C43_DEPS)),)
+-include $(C43_DEPS)
+endif
+ifneq ($(strip $(S43_DEPS)),)
+-include $(S43_DEPS)
+endif
+ifneq ($(strip $(ASM_DEPS)),)
+-include $(ASM_DEPS)
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
+endif
+ifneq ($(strip $(CPP_DEPS)),)
+-include $(CPP_DEPS)
+endif
+ifneq ($(strip $(SA_DEPS)),)
+-include $(SA_DEPS)
+endif
+endif
+
+-include ../makefile.defs
+
+# Add inputs and outputs from these tool invocations to the build variables 
+EXE_OUTPUTS += \
+DAB_Test.out \
+
+EXE_OUTPUTS__QUOTED += \
+"DAB_Test.out" \
+
+BIN_OUTPUTS += \
+DAB_Test.hex \
+
+BIN_OUTPUTS__QUOTED += \
+"DAB_Test.hex" \
+
+
+# All Target
+all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+	@$(MAKE) --no-print-directory -Onone "DAB_Test.out"
+
+# Tool invocations
+DAB_Test.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+	@echo 'Building target: "$@"'
+	@echo 'Invoking: C2000 Linker'
+	"D:/Ti/LT226/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi -z -m"DAB_Test.map" --stack_size=0x200 --warn_sections -i"D:/Ti/LT226/lib" -i"D:/Ti/LT226/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="DAB_Test_linkInfo.xml" --rom_model -o "DAB_Test.out" $(ORDERED_OBJS)
+	@echo 'Finished building target: "$@"'
+	@echo ' '
+
+DAB_Test.hex: $(EXE_OUTPUTS)
+	@echo 'Building secondary target: "$@"'
+	@echo 'Invoking: C2000 Hex Utility'
+	"D:/Ti/LT226/bin/hex2000" --diag_wrap=off -o "DAB_Test.hex" $(EXE_OUTPUTS__QUOTED)
+	@echo 'Finished building secondary target: "$@"'
+	@echo ' '
+
+# Other Targets
+clean:
+	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
+	-$(RM) "main.obj" "Library\source\F2837xD_Adc.obj" "Library\source\F2837xD_CodeStartBranch.obj" "Library\source\F2837xD_CpuTimers.obj" "Library\source\F2837xD_DBGIER.obj" "Library\source\F2837xD_DefaultISR.obj" "Library\source\F2837xD_Dma.obj" "Library\source\F2837xD_ECap.obj" "Library\source\F2837xD_EPwm.obj" "Library\source\F2837xD_EQep.obj" "Library\source\F2837xD_Emif.obj" "Library\source\F2837xD_Gpio.obj" "Library\source\F2837xD_I2C.obj" "Library\source\F2837xD_Ipc.obj" "Library\source\F2837xD_Ipc_Driver.obj" "Library\source\F2837xD_Ipc_Driver_Lite.obj" "Library\source\F2837xD_Ipc_Driver_Util.obj" "Library\source\F2837xD_Mcbsp.obj" "Library\source\F2837xD_PieCtrl.obj" "Library\source\F2837xD_PieVect.obj" "Library\source\F2837xD_SWPrioritizedPieVect.obj" "Library\source\F2837xD_Sci.obj" "Library\source\F2837xD_Spi.obj" "Library\source\F2837xD_SysCtrl.obj" "Library\source\F2837xD_TempSensorConv.obj" "Library\source\F2837xD_Upp.obj" "Library\source\F2837xD_can.obj" "Library\source\F2837xD_sci_io.obj" 
+	-$(RM) "Library\source\F2837xD_sdfm_drivers.obj" "Library\source\F2837xD_struct.obj" "Library\source\F2837xD_usDelay.obj" "Library\source\device.obj" 
+	-$(RM) "main.d" "Library\source\F2837xD_Adc.d" "Library\source\F2837xD_CpuTimers.d" "Library\source\F2837xD_DefaultISR.d" "Library\source\F2837xD_Dma.d" "Library\source\F2837xD_ECap.d" "Library\source\F2837xD_EPwm.d" "Library\source\F2837xD_EQep.d" "Library\source\F2837xD_Emif.d" "Library\source\F2837xD_Gpio.d" "Library\source\F2837xD_I2C.d" "Library\source\F2837xD_Ipc.d" "Library\source\F2837xD_Ipc_Driver.d" "Library\source\F2837xD_Ipc_Driver_Lite.d" "Library\source\F2837xD_Ipc_Driver_Util.d" "Library\source\F2837xD_Mcbsp.d" "Library\source\F2837xD_PieCtrl.d" "Library\source\F2837xD_PieVect.d" "Library\source\F2837xD_SWPrioritizedPieVect.d" "Library\source\F2837xD_Sci.d" "Library\source\F2837xD_Spi.d" "Library\source\F2837xD_SysCtrl.d" "Library\source\F2837xD_TempSensorConv.d" "Library\source\F2837xD_Upp.d" "Library\source\F2837xD_can.d" "Library\source\F2837xD_sci_io.d" "Library\source\F2837xD_sdfm_drivers.d" "Library\source\F2837xD_struct.d" "Library\source\device.d" 
+	-$(RM) "Library\source\F2837xD_CodeStartBranch.d" "Library\source\F2837xD_DBGIER.d" "Library\source\F2837xD_usDelay.d" 
+	-@echo 'Finished clean'
+	-@echo ' '
+
+.PHONY: all clean dependents
+.SECONDARY:
+
+-include ../makefile.targets
+
