@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SemiconductorLibrary xmlns="http://www.plexim.com/xml/semiconductors/" version="1.3">
+	<Package class="MOSFET with Diode" vendor="Infineon" partnumber="IMW120R030M1H">
+		<Variables>
+			<Variable>
+				<Name>v</Name>
+				<MinValue>0</MinValue>
+				<MaxValue>800</MaxValue>
+			</Variable>
+			<Variable>
+				<Name>i</Name>
+				<MinValue>0</MinValue>
+				<MaxValue>50</MaxValue>
+			</Variable>
+			<Variable>
+				<Name>T</Name>
+				<MinValue>0</MinValue>
+				<MaxValue>175</MaxValue>
+			</Variable>
+			<Variable>
+				<Name>Rgon</Name>
+				<Description>Gate (on) resistance</Description>
+				<MinValue>2</MinValue>
+				<MaxValue>120</MaxValue>
+			</Variable>
+			<Variable>
+				<Name>Rgoff</Name>
+				<Description>Gate (off) resistance</Description>
+				<MinValue>2</MinValue>
+				<MaxValue>120</MaxValue>
+			</Variable>
+		</Variables>
+		<CustomTables>
+			<Table1D>
+				<Name>e_rg_on</Name>
+				<XAxis> 2 4 6 10 30 120</XAxis>
+				<FunctionValues scale="1"> 487.102 527.13 564.431 651.587 1036.803 2696.24</FunctionValues>
+			</Table1D>
+			<Table1D>
+				<Name>e_rg_off</Name>
+				<XAxis> 2 4 6 10 30 120</XAxis>
+				<FunctionValues scale="1"> 95.397 143.992 200.832 316.018 845.661 3115.029</FunctionValues>
+			</Table1D>
+			<Table1D>
+				<Name>e_i_on</Name>
+				<XAxis> 0 6.25 12.5 25 50</XAxis>
+				<FunctionValues scale="1"> 0 188.272 285.168 487.102 961.852</FunctionValues>
+			</Table1D>
+			<Table1D>
+				<Name>e_i_off</Name>
+				<XAxis> 0 6.25 12.5 25 50</XAxis>
+				<FunctionValues scale="1"> 0 48.415 52.472 95.397 312.553</FunctionValues>
+			</Table1D>
+			<Table1D>
+				<Name>e_tj_on</Name>
+				<XAxis> 25 100 175</XAxis>
+				<FunctionValues scale="1"> 366.345 443.354 527.602</FunctionValues>
+			</Table1D>
+			<Table1D>
+				<Name>e_tj_off</Name>
+				<XAxis> 25 100 175</XAxis>
+				<FunctionValues scale="1"> 79.984 86.512 95.397</FunctionValues>
+			</Table1D>
+			<Table1D>
+				<Name>e_v_on</Name>
+				<XAxis> 0 400 600 800</XAxis>
+				<FunctionValues scale="1"> 0 294.701 380.705 487.102</FunctionValues>
+			</Table1D>
+			<Table1D>
+				<Name>e_v_off</Name>
+				<XAxis> 0 400 600 800</XAxis>
+				<FunctionValues scale="1"> 0 40.963 63.885 95.397</FunctionValues>
+			</Table1D>
+			<Table1D>
+				<Name>e_rg_rec</Name>
+				<XAxis> 2 4 6 10 30 120</XAxis>
+				<FunctionValues scale="1"> 240 240 240 240 240 240</FunctionValues>
+			</Table1D>
+			<Table1D>
+				<Name>e_i_rec</Name>
+				<XAxis> 0 6.25 12.5 25 50</XAxis>
+				<FunctionValues scale="1"> 0 60 120 240 480</FunctionValues>
+			</Table1D>
+			<Table1D>
+				<Name>e_tj_rec</Name>
+				<XAxis> 25 100 175</XAxis>
+				<FunctionValues scale="1"> 120.0 200.25 280.5</FunctionValues>
+			</Table1D>
+			<Table1D>
+				<Name>e_v_rec</Name>
+				<XAxis> 0 400 600 800</XAxis>
+				<FunctionValues scale="1"> 0 240 240 240</FunctionValues>
+			</Table1D>
+		</CustomTables>
+		<SemiconductorData type="MOSFET with Diode">
+			<TurnOnLoss>
+				<ComputationMethod>Formula only</ComputationMethod>
+				<Formula>max(lookup('e_rg_on', Rgon)*lookup('e_tj_on', T)*lookup('e_i_on', i)*lookup('e_v_on', v)/(lookup('e_i_on', 25)^3)*1e-6,0)</Formula>
+				<CurrentAxis> 0</CurrentAxis>
+				<VoltageAxis> 0</VoltageAxis>
+				<TemperatureAxis> 0</TemperatureAxis>
+				<Energy scale="1e-6">
+					<Temperature>
+						<Voltage> 0</Voltage>
+					</Temperature>
+				</Energy>
+			</TurnOnLoss>
+			<TurnOffLoss>
+				<ComputationMethod>Formula only</ComputationMethod>
+			<Formula>max(lookup('e_rg_off', Rgoff)*lookup('e_tj_off', T)*lookup('e_i_off', i)*lookup('e_v_off', v)/(lookup('e_i_off', 25)^3)*1e-6,0) + max(lookup('e_rg_rec', Rgon)*lookup('e_tj_rec', T)*lookup('e_i_rec', -i)*lookup('e_v_rec', v)/(lookup('e_i_rec', 25)^3)*1e-6,0)</Formula>
+				<CurrentAxis> 0</CurrentAxis>
+				<VoltageAxis> 0</VoltageAxis>
+				<TemperatureAxis> 0</TemperatureAxis>
+				<Energy scale="1e-6">
+					<Temperature>
+						<Voltage> 0</Voltage>
+					</Temperature>
+				</Energy>
+			</TurnOffLoss>
+			<ConductionLoss>
+				<ComputationMethod>Table and formula</ComputationMethod>
+				<Formula>v</Formula>
+				<CurrentAxis> -43.028 -32.258 -21.496 -10.743 0.0 8.119 16.027 23.482 30.505 37.134 43.405 49.35</CurrentAxis>
+				<TemperatureAxis> 25 175</TemperatureAxis>
+				<VoltageDrop scale="1">
+					<Temperature> -1.0 -0.75 -0.5 -0.25 0.0 0.25 0.5 0.75 1.0 1.25 1.5 1.75</Temperature>
+					<Temperature> -2.28 -1.71 -1.139 -0.569 0.0 0.505 0.979 1.436 1.88 2.313 2.739 3.0</Temperature>
+				</VoltageDrop>
+			</ConductionLoss>
+		</SemiconductorData>
+		<ThermalModel>
+      <Branch type="Foster" convertToCauer="false">
+        <RTauElement R="0.278" Tau="0.0178"/>
+       <RTauElement R="0.201" Tau="0.00298"/>
+       <RTauElement R="0.158" Tau="0.000523"/>
+       <RTauElement R="0.0234" Tau="1.52e-5"/>
+      </Branch>
+		</ThermalModel>
+	</Package>
+</SemiconductorLibrary>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SemiconductorLibrary xmlns="http://www.plexim.com/xml/semiconductors/" version="1.4">
+    <Package class="MOSFET with Diode" vendor="Infineon" partnumber="IMW120R020M1H">
+        <Constants>
+            <Constant>
+                <Name>var_zthtype</Name>
+                <Description>Define Thermal Model  and Rthjx interpretation: J-C(0), J-H(1), J-A(2), J-F(3), J-F &amp; Flow-Rate dependency(4)</Description>
+                <Value>0</Value>
+            </Constant>
+            <Constant>
+                <Name>var_bp</Name>
+                <Description>Power module with(1) or without(0) baseplate</Description>
+                <Value>0</Value>
+            </Constant>
+            <Constant>
+                <Name>var_device</Name>
+                <Description>Device type (IGBT = 0, FWD = 0, MOSFET with BD = 1)</Description>
+                <Value>1</Value>
+            </Constant>
+            <Constant>
+                <Name>var_TIM</Name>
+                <Description>TIM material applied (not applied = 0, applied = 1)</Description>
+                <Value>0</Value>
+            </Constant>
+            <Constant>
+                <Name>RDDSS</Name>
+                <Description>Internal lead Resistance [Ohm]</Description>
+                <Value>0</Value>
+            </Constant>
+            <Constant>
+                <Name>VDSS</Name>
+                <Description>Maximum rated drain-source voltage [V]</Description>
+                <Value>1200</Value>
+            </Constant>
+            <Constant>
+                <Name>VDS</Name>
+                <Description>Nominal DC working voltage [V]</Description>
+                <Value>800</Value>
+            </Constant>
+            <Constant>
+                <Name>Rthjx</Name>
+                <Description>Thermal resistance Junction-to-X, where X depends on var_zthtype, can be case(C), heatsink(H) [K/W]</Description>
+                <Value>0.31</Value>
+            </Constant>
+            <Constant>
+                <Name>Rthch</Name>
+                <Description>Thermal resistance case to heatsink  [K/W] (0 for for non TIM products)</Description>
+                <Value>0.31</Value>
+            </Constant>
+            <Constant>
+                <Name>Tvjop_max</Name>
+                <Description>Maximum junction temperature under switching conditions [°C]</Description>
+                <Value>175</Value>
+            </Constant>
+            <Constant>
+                <Name>var_advanced</Name>
+                <Description>XML distribution domain (0) Ready for public distribution (1) Infineon or approved customer distribution only</Description>
+                <Value>-1</Value>
+            </Constant>
+            <Constant>
+                <Name>IDDC</Name>
+                <Description>Continuous DC drain current [A]</Description>
+                <Value>98</Value>
+            </Constant>
+        </Constants>
+        <Variables>
+            <Variable>
+                <Name>Rgon</Name>
+                <Description>On Gate Resistance (Rgon)</Description>
+                <DefaultValue>2</DefaultValue>
+            </Variable>
+            <Variable>
+                <Name>Rgoff</Name>
+                <Description>Off Gate Resistance (Rgoff)</Description>
+                <DefaultValue>2</DefaultValue>
+            </Variable>
+            <Variable>
+                <Name>Rgrec</Name>
+                <Description>Gate (on) resistsance of switch that imposes di/dt during diode turn off</Description>
+                <DefaultValue>2</DefaultValue>
+            </Variable>
+            <Variable>
+                <Name>tdead</Name>
+                <Description>Deadtime in s (tdead)</Description>
+            </Variable>
+        </Variables>
+        <SemiconductorData type="MOSFET with Diode">
+            <TurnOnLoss>
+                <ComputationMethod>Table and formula</ComputationMethod>
+                <Formula> ((1-exp(-tdead/5e-07))/2 + 0.5)*E*(-3.1384e-19*Rgon^2 + 0.021188*Rgon + 0.97881)  </Formula>
+                <CurrentAxis> 0 8.2         16.4         24.6         32.8           41         49.2         57.4         65.6         73.8           82 </CurrentAxis>
+                <VoltageAxis> 0 720 800 880</VoltageAxis>
+                <TemperatureAxis> 25 100 175</TemperatureAxis>
+                <Energy scale="1">
+                    <Temperature>
+                    	  <Voltage> 0  0  0  0  0  0  0  0  0  0  0 </Voltage>
+                    	  <Voltage> 0 6.5e-05     6.5e-05  0.00013446  0.00053986  0.00093183   0.0013152    0.001695   0.0020759    0.002463   0.0028609 </Voltage>
+                        <Voltage> 0 6.5e-05     6.5e-05   0.0002067   0.0006121   0.0010041   0.0013875   0.0017672   0.0021482   0.0025352   0.0029332 </Voltage>
+                        <Voltage> 0 6.5e-05     6.5e-05  0.00027894  0.00068434   0.0010763   0.0014597   0.0018395   0.0022204   0.0026074   0.0030054 </Voltage>
+                    </Temperature>
+                    <Temperature>
+                    	  <Voltage> 0  0  0  0  0  0  0  0  0  0  0 </Voltage>
+                    	  <Voltage> 0 6.5e-05     6.5e-05  0.00027954  0.00068494   0.0010769   0.0014603   0.0018401    0.002221    0.002608    0.003006 </Voltage>
+                        <Voltage> 0 6.5e-05     6.5e-05  0.00035178  0.00075718   0.0011491   0.0015326   0.0019123   0.0022933   0.0026803   0.0030783 </Voltage>
+                        <Voltage> 0 -0.00044657  3.1472e-07  0.00042402  0.00082942   0.0012214   0.0016048   0.0019846   0.0023655   0.0027525   0.0031505 </Voltage>
+                    </Temperature>
+                    <Temperature>
+                    	  <Voltage> 0  0  0  0  0  0  0  0  0  0  0 </Voltage>
+                    	  <Voltage> 0 6.5e-05     6.5e-05  0.00042462  0.00083002    0.001222   0.0016054   0.0019852   0.0023661   0.0027531   0.0031511 </Voltage>
+                        <Voltage> 0 6.5e-05  7.3154e-05  0.00049686  0.00090226   0.0012942   0.0016776   0.0020574   0.0024383   0.0028254   0.0032233 </Voltage>
+                        <Voltage> 0 -0.00030149   0.0001454   0.0005691   0.0009745   0.0013665   0.0017499   0.0021296   0.0025106   0.0028976   0.0032956 </Voltage>
+                    </Temperature>
+                </Energy>
+            </TurnOnLoss>
+            <TurnOffLoss>
+                <ComputationMethod>Table and formula</ComputationMethod>
+                <Formula>(i&gt;0)*E*(-9.4152e-19*Rgoff^2+0.18971*Rgoff+0.81029)+(i&lt;0)*E*((1-exp(-tdead/5e-07))/2+0.5)*(1.5692e-19*Rgon^2+0.043889*Rgon+0.95611)</Formula>
+                <CurrentAxis> -82        -73.8        -65.6        -57.4        -49.2          -41        -32.8        -24.6        -16.4         -8.2 0 8.2         16.4         24.6         32.8           41         49.2         57.4         65.6         73.8           82 </CurrentAxis>
+                <VoltageAxis> 0 720 800 880 </VoltageAxis>
+                <TemperatureAxis> 25 100 175</TemperatureAxis>
+                <Energy scale="1">
+                    <Temperature>
+                    	  <Voltage> 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 </Voltage>
+                    	  <Voltage> 0.0043985   0.0037069    0.003022   0.0023402   0.0016587  0.00097499  0.00028687     6.5e-05     6.5e-05     6.5e-05 0 6.5e-05     6.5e-05  8.2776e-05  0.00023856  0.00039434  0.00055012   0.0007059  0.00086169   0.0010175   0.0011733 </Voltage>
+                        <Voltage> 0.004953   0.0042615   0.0035765   0.0028947   0.0022132   0.0015295  0.00084137  0.00014709     6.5e-05     6.5e-05 0 6.5e-05     6.5e-05  9.7304e-05  0.00025309  0.00040887  0.00056465  0.00072043  0.00087621    0.001032   0.0011878 </Voltage>
+                        <Voltage> 0.0051898   0.0044983   0.0038133   0.0031315     0.00245   0.0017663   0.0010782  0.00038392     6.5e-05     6.5e-05 0 6.5e-05     6.5e-05  0.00011183  0.00026761   0.0004234  0.00057918  0.00073496  0.00089074   0.0010465   0.0012023 </Voltage>
+                    </Temperature>
+                    <Temperature>
+                    	  <Voltage> 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 </Voltage>
+                    	  <Voltage> 0.0047384   0.0040468   0.0033619   0.0026801   0.0019986   0.0013149  0.00062677     6.5e-05     6.5e-05     6.5e-05 0 6.5e-05     6.5e-05  8.2851e-05  0.00023863  0.00039441   0.0005502  0.00070598  0.00086176   0.0010175   0.0011733 </Voltage>
+                        <Voltage> 0.0052929   0.0046014   0.0039164   0.0032346   0.0025531   0.0018694   0.0011813  0.00048699     6.5e-05     6.5e-05 0 6.5e-05     6.5e-05  9.7379e-05  0.00025316  0.00040894  0.00056473  0.00072051  0.00087629   0.0010321   0.0011879 </Voltage>
+                        <Voltage> 0.0055297   0.0048382   0.0041532   0.0034714   0.0027899   0.0021062   0.0014181  0.00072382  2.2026e-05 -0.00068826 0 -0.00019966 -4.3874e-05  0.00011191  0.00026769  0.00042347  0.00057925  0.00073504  0.00089082   0.0010466   0.0012024 </Voltage>
+                    </Temperature>
+                    <Temperature>
+                    	  <Voltage> 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 </Voltage>
+                    	  <Voltage> 0.0050783   0.0043867   0.0037018     0.00302   0.0023385   0.0016548  0.00096667  0.00027239     6.5e-05     6.5e-05 0 6.5e-05     6.5e-05  8.2926e-05  0.00023871  0.00039449  0.00055027  0.00070605  0.00086184   0.0010176   0.0011734 </Voltage>
+                        <Voltage> 0.0056328   0.0049413   0.0042563   0.0035745    0.002893   0.0022093   0.0015212  0.00082689   0.0001251     6.5e-05 0 6.5e-05     6.5e-05  9.7454e-05  0.00025324  0.00040902   0.0005648  0.00072058  0.00087636   0.0010321   0.0011879 </Voltage>
+                        <Voltage> 0.0058696   0.0051781   0.0044931   0.0038113   0.0031298   0.0024461    0.001758   0.0010637  0.00036193 -0.00034836 0 -0.00014958  6.2008e-06  0.00016198  0.00031776  0.00047355  0.00062933  0.00078511  0.00094089   0.0010967   0.0012525 </Voltage>
+                    </Temperature>
+                </Energy>
+            </TurnOffLoss>
+            <ConductionLoss gate="on">
+                <ComputationMethod>Table only</ComputationMethod>
+                <CurrentAxis> -82        -61.5          -41        -20.5            0         20.5           41         61.5           82 </CurrentAxis>
+                <TemperatureAxis> 25 100 175</TemperatureAxis>
+                <VoltageDrop scale="1">
+                    <Temperature> -1.5483     -1.1578    -0.77025    -0.38464           0     0.38464     0.77025      1.1578      1.5483 </Temperature>
+                    <Temperature> -2.119     -1.5845     -1.0541     -0.5264           0      0.5264      1.0541      1.5845       2.119 </Temperature>
+                    <Temperature> -3.04     -2.2733     -1.5123     -0.7552           0      0.7552      1.5123      2.2733        3.04 </Temperature>
+                </VoltageDrop>
+            </ConductionLoss>           
+            <ConductionLoss  gate="off">
+                <ComputationMethod>Table only</ComputationMethod>
+                <CurrentAxis> -82        -61.5          -41        -20.5            0 </CurrentAxis>
+                <TemperatureAxis> 25 175</TemperatureAxis>
+                <VoltageDrop scale="1">
+                    <Temperature> -6.2307     -5.7728     -5.2472     -4.6539     -3.9927 </Temperature>
+                    <Temperature> -5.7712     -5.3044     -4.7867     -4.2183      -3.599 </Temperature>
+                </VoltageDrop>
+            </ConductionLoss>            
+        </SemiconductorData>
+        <ThermalModel>
+            <Branch type="Foster" convertToCauer = "false">
+                <RTauElement R="0.03552" Tau="0.00045355"/>
+                <RTauElement R="0.1156" Tau="0.0041528"/>
+                <RTauElement R="0.13877" Tau="0.013241"/>
+                <RTauElement R="0.017585" Tau="3.2418e-05"/>
+            </Branch>
+        </ThermalModel>
+        <Comment>
+            <Line>Infineon CoolSiC™ MOSFET PLECS Model</Line>
+            <Line>MOSFET chip loss model for IMW120R020M1H </Line>
+            <Line>beta version (23.2.0.2365128 (R2023b))</Line>
+            <Line></Line>
+            <Line>Date: 241107 </Line>
+            <Line></Line>
+            <Line>*** DISCLAIMER ***</Line>
+            <Line>Models provided by INFINEON are not warranted by INFINEON as  fully representing all of the specifications and operating  characteristics of the semiconductor product to which the  model relates. The model describes the characteristics of a typical device. In all cases, the current data sheet information for a given device is the final design guideline and the only actual performance specification.                                    </Line>
+            <Line>Although models can be a useful tool in evaluating device performance, they cannot model exact device performance under all conditions, nor are they intended to replace bread-boarding for final verification. INFINEON therefore does not assume any liability arising from their use. INFINEON reserves the right to change models without prior notice.</Line>
+        </Comment>
+    </Package>
+</SemiconductorLibrary>
+

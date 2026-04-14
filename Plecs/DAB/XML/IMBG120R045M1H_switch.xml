@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SemiconductorLibrary xmlns="http://www.plexim.com/xml/semiconductors/" version="1.1">
+    <Package class="MOSFET with Diode" vendor="Infineon" partnumber="IMBG120R045M1H">
+        <Variables>
+            <Variable>
+                <Name>v</Name>
+                <MinValue>0</MinValue>
+                <MaxValue>800</MaxValue>
+            </Variable>
+            <Variable>
+                <Name>i</Name>
+                <MinValue>0</MinValue>
+                <MaxValue>50</MaxValue>
+            </Variable>
+            <Variable>
+                <Name>T</Name>
+                <MinValue>0</MinValue>
+                <MaxValue>175</MaxValue>
+            </Variable>
+            <Variable>
+                <Name>Rgon</Name>
+                <Description>Gate (on) resistance</Description>
+                <MinValue>2</MinValue>
+                <MaxValue>120</MaxValue>
+            </Variable>
+            <Variable>
+                <Name>Rgoff</Name>
+                <Description>Gate (off) resistance</Description>
+                <MinValue>2</MinValue>
+                <MaxValue>120</MaxValue>
+            </Variable>
+        </Variables>
+        <CustomTables>
+            <Table1D>
+                <Name>e_rg_on</Name>
+                <XAxis> 2 4 6 10 30 120</XAxis>
+                <FunctionValues scale="1"> 370.204 396.613 425.951 479.668 713.204 1722.913</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_rg_off</Name>
+                <XAxis> 2 4 6 10 30 120</XAxis>
+                <FunctionValues scale="1"> 60.414 101.85 125.12 194.235 500.876 1875.027</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_i_on</Name>
+                <XAxis> 0 4 8 16 32</XAxis>
+                <FunctionValues scale="1"> 0 139.598 222.073 370.204 726.565</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_i_off</Name>
+                <XAxis> 0 4 8 16 32</XAxis>
+                <FunctionValues scale="1"> 0 29.421 38.326 60.414 313.914</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_tj_on</Name>
+                <XAxis> 25 100 175</XAxis>
+                <FunctionValues scale="1"> 230.805 300.38 369.954</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_tj_off</Name>
+                <XAxis> 25 100 175</XAxis>
+                <FunctionValues scale="1"> 48.235 54.325 60.414</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_v_on</Name>
+                <XAxis> 0 400 600 800</XAxis>
+                <FunctionValues scale="1"> 0 288.442 333.965 404.132</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_v_off</Name>
+                <XAxis> 0 400 600 800</XAxis>
+                <FunctionValues scale="1"> 0 42.13 62.803 91.303</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_rg_rec</Name>
+                <XAxis> 2 4 6 10 30 120</XAxis>
+                <FunctionValues scale="1"> 260 260 260 260 260 260</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_i_rec</Name>
+                <XAxis> 0 4 8 16 32</XAxis>
+                <FunctionValues scale="1"> 0 65 130 260 520</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_tj_rec</Name>
+                <XAxis> 25 100 175</XAxis>
+                <FunctionValues scale="1"> 130 194.875 259.75</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_v_rec</Name>
+                <XAxis> 0 400 600 800</XAxis>
+                <FunctionValues scale="1"> 0 260 260 260</FunctionValues>
+            </Table1D>
+        </CustomTables>
+        <SemiconductorData type="MOSFET with Diode">
+            <TurnOnLoss>
+                <ComputationMethod>Formula only</ComputationMethod>
+                <Formula>max(lookup('e_rg_on', Rgon)*lookup('e_tj_on', T)*lookup('e_i_on', i)*lookup('e_v_on', v)/(lookup('e_i_on', 16)^3)*1e-6,0)</Formula>
+                <CurrentAxis> 0</CurrentAxis>
+                <VoltageAxis> 0</VoltageAxis>
+                <TemperatureAxis> 0</TemperatureAxis>
+                <Energy scale="1e-06">
+                    <Temperature>
+                        <Voltage> 0</Voltage>
+                    </Temperature>
+                </Energy>
+            </TurnOnLoss>
+            <TurnOffLoss>
+                <ComputationMethod>Formula only</ComputationMethod>
+                <Formula>max(lookup('e_rg_off', Rgoff)*lookup('e_tj_off', T)*lookup('e_i_off', i)*lookup('e_v_off', v)/(lookup('e_i_off', 16)^3)*1e-6,0) + max(lookup('e_rg_rec', Rgon)*lookup('e_tj_rec', T)*lookup('e_i_rec', -i)*lookup('e_v_rec', v)/(lookup('e_i_rec', 16)^3)*1e-6,0)</Formula>
+                <CurrentAxis> 0</CurrentAxis>
+                <VoltageAxis> 0</VoltageAxis>
+                <TemperatureAxis> 0</TemperatureAxis>
+                <Energy scale="1e-06">
+                    <Temperature>
+                        <Voltage> 0</Voltage>
+                    </Temperature>
+                </Energy>
+            </TurnOffLoss>
+            <ConductionLoss>
+                <ComputationMethod>Table and formula</ComputationMethod>
+                <Formula>v</Formula>
+                <CurrentAxis> -43.064 -35.872 -28.685 -21.505 -14.331 -7.162 0 5.578 11.151 16.534 21.716 26.704 31.509 36.14 40.607 44.921 49.089</CurrentAxis>
+                <TemperatureAxis> 25 175</TemperatureAxis>
+                <VoltageDrop scale="1">
+                    <Temperature> -1.5 -1.25 -1 -0.75 -0.5 -0.25 0 0.25 0.5 0.75 1 1.25 1.5 1.75 2 2.25 2.5</Temperature>
+                    <Temperature> -3.416 -2.851 -2.28 -1.71 -1.139 -0.569 0 0.483 0.946 1.4 1.848 2.291 2.733 3.173 3.613 4.052 4.491</Temperature>
+                </VoltageDrop>
+            </ConductionLoss>
+        </SemiconductorData>
+        <ThermalModel>
+            <Branch type="Cauer">
+                <RCElement R="0.04712250624620866" C="0.00028598130841121495"/>
+                <RCElement R="0.12737468787722342" C="0.0013578260135453167"/>
+                <RCElement R="0.25343532517629913" C="0.007356738935031996"/>
+                <RCElement R="0.22606748070026886" C="0.032036262767036416"/>
+            </Branch>
+        </ThermalModel>
+        <Comment>
+            <Line></Line>
+        </Comment>
+    </Package>
+</SemiconductorLibrary>

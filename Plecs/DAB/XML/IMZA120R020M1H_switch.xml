@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SemiconductorLibrary xmlns="http://www.plexim.com/xml/semiconductors/" version="1.4">
+    <Package class="MOSFET with Diode" vendor="Infineon" partnumber="IMZA120R020M1H">
+        <Constants>
+            <Constant>
+                <Name>var_zthtype</Name>
+                <Description>Define Thermal Model  and Rthjx interpretation: J-C(0), J-H(1), J-A(2), J-F(3), J-F &amp; Flow-Rate dependency(4)</Description>
+                <Value>0</Value>
+            </Constant>
+            <Constant>
+                <Name>var_bp</Name>
+                <Description>Power module with(1) or without(0) baseplate</Description>
+                <Value>0</Value>
+            </Constant>
+            <Constant>
+                <Name>var_device</Name>
+                <Description>Device type (IGBT = 0, FWD = 0, MOSFET with BD = 1)</Description>
+                <Value>1</Value>
+            </Constant>
+            <Constant>
+                <Name>var_TIM</Name>
+                <Description>TIM material applied (not applied = 0, applied = 1)</Description>
+                <Value>0</Value>
+            </Constant>
+            <Constant>
+                <Name>RDDSS</Name>
+                <Description>Internal lead Resistance [Ohm]</Description>
+                <Value>0</Value>
+            </Constant>
+            <Constant>
+                <Name>VDSS</Name>
+                <Description>Maximum rated drain-source voltage [V]</Description>
+                <Value>1200</Value>
+            </Constant>
+            <Constant>
+                <Name>VDS</Name>
+                <Description>Nominal DC working voltage [V]</Description>
+                <Value>800</Value>
+            </Constant>
+            <Constant>
+                <Name>Rthjx</Name>
+                <Description>Thermal resistance Junction-to-X, where X depends on var_zthtype, can be case(C), heatsink(H) [K/W]</Description>
+                <Value>0.31</Value>
+            </Constant>
+            <Constant>
+                <Name>Tvjop_max</Name>
+                <Description>Maximum junction temperature under switching conditions [?C]</Description>
+                <Value>175</Value>
+            </Constant>
+            <Constant>
+                <Name>var_advanced</Name>
+                <Description>XML distribution domain (0) Ready for public distribution (1) Infineon or approved customer distribution only</Description>
+                <Value>-1</Value>
+            </Constant>
+            <Constant>
+                <Name>IDDC</Name>
+                <Description>Continuous DC drain current [A]</Description>
+                <Value>98</Value>
+            </Constant>
+        </Constants>
+        <Variables>
+            <Variable>
+                <Name>V_GS_low</Name>
+                <Description>Gate source voltage low (V_GS(low))</Description>
+                <DefaultValue>0</DefaultValue>
+                <MinValue>-5</MinValue>
+                <MaxValue>0</MaxValue>
+            </Variable>
+            <Variable>
+                <Name>Rgon</Name>
+                <Description>On Gate Resistance (Rgon)</Description>
+                <DefaultValue>2</DefaultValue>
+            </Variable>
+            <Variable>
+                <Name>Rgoff</Name>
+                <Description>Off Gate Resistance (Rgoff)</Description>
+                <DefaultValue>2</DefaultValue>
+            </Variable>
+            <Variable>
+                <Name>tdead</Name>
+                <Description>Deadtime in ns (tdead)</Description>
+            </Variable>
+        </Variables>
+        <CustomTables>
+            <Table2D>
+                <Name>VGS_0V</Name>
+                <XAxis> -82        -73.8        -65.6        -57.4        -49.2          -41        -32.8        -24.6        -16.4         -8.2            0 </XAxis>
+                <YAxis> 25 175</YAxis>
+                <FunctionValues scale="1">
+                    <YDimension> -4.7858     -4.6067     -4.4238     -4.2373      -4.047     -3.8531     -3.6555     -3.4542     -3.2493     -3.0406     -2.8283</YDimension>
+                    <YDimension> -4.5786     -4.4013     -4.2207     -4.0367     -3.8495      -3.659     -3.4652     -3.2681     -3.0678     -2.8641     -2.6571</YDimension>
+                </FunctionValues>
+            </Table2D>
+            <Table1D>
+                <Name>e_rg_on</Name>
+                <XAxis> 1        1.667        3.333        6.667           10       16.667       23.333       26.667           30       33.333       36.667           40       43.333       46.667</XAxis>
+                <FunctionValues scale="1"> 0.00064858  0.00069182  0.00080105   0.0010243   0.0012541   0.0017329   0.0022374   0.0024994   0.0027678   0.0030426   0.0033239   0.0036116   0.0039058   0.0042064</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_rg_off</Name>
+                <XAxis> 1        1.667        3.333        6.667           10       16.667       23.333       26.667           30       33.333       36.667           40       43.333       46.667</XAxis>
+                <FunctionValues scale="1"> 0.00011332  0.00013204   0.0001793   0.0002757  0.00037464  0.00058011  0.00079572  0.00090733   0.0010215   0.0011381   0.0012573   0.0013791   0.0015034   0.0016302</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_rg_rec</Name>
+                <XAxis> 1        1.667        3.333        6.667           10       16.667       23.333       26.667           30       33.333       36.667           40       43.333       46.667</XAxis>
+                <FunctionValues scale="1"> 0.00025498  0.00024855  0.00023297  0.00020402  0.00017801  0.00013477  0.00010327  9.1916e-05  8.3496e-05   7.801e-05  7.5457e-05  7.5836e-05  7.9149e-05  8.5394e-05</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_tj_on</Name>
+                <XAxis> 0   10   20   25   40   50   60   70   80   90  100  110  120  130  140  150  160  175  180  190  200  210  220  230  240</XAxis>
+                <FunctionValues scale="1"> 0.00033512  0.00036242  0.00038862  0.00040131   0.0004377  0.00046057  0.00048234    0.000503  0.00052255  0.00054099  0.00055832  0.00057454  0.00058966  0.00060367  0.00061657  0.00062836  0.00063904  0.00065298  0.00065707  0.00066443  0.00067067  0.00067581  0.00067984  0.00068277  0.00068458</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_tj_off</Name>
+                <XAxis> 0   10   20   25   40   50   60   70   80   90  100  110  120  130  140  150  160  175  180  190  200  210  220  230  240</XAxis>
+                <FunctionValues scale="1"> 9.8757e-05  0.00010273  0.00010634    0.000108  0.00011244  0.00011495  0.00011708  0.00011885  0.00012025  0.00012128  0.00012195  0.00012225  0.00012218  0.00012174  0.00012094  0.00011976  0.00011822  0.00011523  0.00011404   0.0001114  0.00010839  0.00010501  0.00010127  9.7156e-05  9.2676e-05</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_tj_rec</Name>
+                <XAxis> 0   10   20   25   40   50   60   70   80   90  100  110  120  130  140  150  160  175  180  190  200  210  220  230  240</XAxis>
+                <FunctionValues scale="1"> 2.7214e-05  4.1693e-05  5.5991e-05  6.3071e-05  8.4039e-05   9.779e-05  0.00011136  0.00012475  0.00013795  0.00015097  0.00016382  0.00017647  0.00018895  0.00020125  0.00021336  0.00022529  0.00023704  0.00025432  0.00025999   0.0002712  0.00028222  0.00029306  0.00030371  0.00031419  0.00032448</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_i_on</Name>
+                <XAxis> 24.576       24.576       24.576       24.576       24.576       24.576       24.576       28.671       32.767       36.863       40.959       45.055       49.151       53.247       57.343       61.439       65.535       69.631       73.727       77.823       81.918</XAxis>
+                <FunctionValues scale="1"> 0.00048128  0.00048128  0.00048128  0.00048128  0.00048128  0.00048128  0.00048128  0.00054156  0.00060185  0.00066213  0.00072242   0.0007827  0.00084298  0.00090327  0.00096355   0.0010238   0.0010841   0.0011444   0.0012047    0.001265   0.0013253</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_i_off</Name>
+                <XAxis> 24.576       24.576       24.576       24.576       24.576       24.576       24.576       28.671       32.767       36.863       40.959       45.055       49.151       53.247       57.343       61.439       65.535       69.631       73.727       77.823       81.918</XAxis>
+                <FunctionValues scale="1"> 0.00011611  0.00011611  0.00011611  0.00011611  0.00011611  0.00011611  0.00011611   0.0001234   0.0001307  0.00013799  0.00014529  0.00015258  0.00015987  0.00016717  0.00017446  0.00018176  0.00018905  0.00019635  0.00020364  0.00021094  0.00021823</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_i_rec</Name>
+                <XAxis> 24.576       24.576       24.576       24.576       24.576       24.576       24.576       28.671       32.767       36.863       40.959       45.055       49.151       53.247       57.343       61.439       65.535       69.631       73.727       77.823       81.918</XAxis>
+                <FunctionValues scale="1"> 0.00012677  0.00012677  0.00012677  0.00012677  0.00012677  0.00012677  0.00012677  0.00015642  0.00018607  0.00021572  0.00024538  0.00027503  0.00030468  0.00033433  0.00036398  0.00039363  0.00042329  0.00045294  0.00048259  0.00051224  0.00054189</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_v_rec</Name>
+                <XAxis> 600   650   700   750   800   850   900   950  1000</XAxis>
+                <FunctionValues scale="1"> 0.00016857  0.00018637  0.00020682  0.00022991  0.00025565  0.00028403  0.00031506  0.00034873  0.00038505</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_v_on</Name>
+                <XAxis> 600   650   700   750   800   850   900   950  1000</XAxis>
+                <FunctionValues scale="1"> 0.0003993   0.0004563  0.00051736  0.00058246  0.00065161  0.00072481  0.00080205  0.00088335  0.00096869</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_v_off</Name>
+                <XAxis> 600   650   700   750   800   850   900   950  1000</XAxis>
+                <FunctionValues scale="1"> 9.1351e-05  9.4419e-05  9.9521e-05  0.00010666  0.00011583  0.00012703  0.00014026  0.00015553  0.00017284</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_td_on</Name>
+                <XAxis> 0    50   100   150   200   250   300   350   400   450   500   550   600   650   700  1000</XAxis>
+                <FunctionValues scale="1"> 0.00049363  0.00052712  0.00055797  0.00058619  0.00061176   0.0006347    0.000655  0.00067266  0.00068768  0.00070007  0.00070981  0.00071692  0.00072139  0.00072322  0.00072242  0.00072242</FunctionValues>
+            </Table1D>
+            <Table1D>
+                <Name>e_td_rec</Name>
+                <XAxis> 0    50   100   150   200   250   300   350   400   450   500   550   600   650   700  1000</XAxis>
+                <FunctionValues scale="1"> 0.00010806  0.00012758  0.00014559  0.00016209  0.00017708  0.00019056  0.00020254  0.00021301  0.00022197  0.00022943  0.00023538  0.00023982  0.00024275  0.00024417  0.00024409  0.00024409</FunctionValues>
+            </Table1D>
+        </CustomTables>
+        <SemiconductorData type="MOSFET with Diode">
+            <TurnOnLoss>
+                <ComputationMethod>Formula only</ComputationMethod>
+                <Formula>max(lookup('e_td_on', tdead)*lookup('e_rg_on', Rgon)*lookup('e_tj_on', T)*lookup('e_i_on', i)*lookup('e_v_on', v)/(lookup('e_i_on', 41)^4), 0)</Formula>
+                  <CurrentAxis> 0</CurrentAxis>
+                <VoltageAxis> 0</VoltageAxis>
+                <TemperatureAxis> 0</TemperatureAxis>
+                <Energy scale="0.001">
+                    <Temperature>
+                        <Voltage> 0</Voltage>
+                    </Temperature>
+                </Energy>
+            </TurnOnLoss>
+            <TurnOffLoss>
+                <ComputationMethod>Formula only</ComputationMethod>
+                <Formula>max(0, (V_GS_low ==0)*(i&gt;0)*(lookup('e_rg_off', Rgoff)*lookup('e_tj_off', T)*lookup('e_i_off', i)*lookup('e_v_off', v)/(lookup('e_i_off', 41)^3))+(V_GS_low ==0)*(i&lt;0)*(lookup('e_td_rec', tdead)*lookup('e_rg_rec', Rgon)*lookup('e_tj_rec', T)*lookup('e_i_rec', -i)*lookup('e_v_rec', v)/(lookup('e_i_rec', 41)^4))+ (V_GS_low &lt;0)*(i&gt;0)*0.52632*(lookup('e_rg_off', Rgoff)*lookup('e_tj_off', T)*lookup('e_i_off', i)*lookup('e_v_off', v)/(lookup('e_i_off', 41)^3))+(V_GS_low &lt;0)*(i&lt;0)*1.2*(lookup('e_td_rec', tdead)*lookup('e_rg_rec', Rgon)*lookup('e_tj_rec', T)*lookup('e_i_rec', -i)*lookup('e_v_rec', v)/(lookup('e_i_rec', 41)^4)))</Formula>
+                <CurrentAxis> 0</CurrentAxis>
+                <VoltageAxis> 0</VoltageAxis>
+                <TemperatureAxis> 0</TemperatureAxis>
+                <Energy scale="0.001">
+                    <Temperature>
+                        <Voltage> 0</Voltage>
+                    </Temperature>
+                </Energy>
+            </TurnOffLoss>
+            <ConductionLoss gate="on">
+                <ComputationMethod>Table only</ComputationMethod>
+                <CurrentAxis> -82        -73.8        -65.6        -57.4        -49.2          -41        -32.8        -24.6        -16.4         -8.2            0          8.2         16.4         24.6         32.8           41         49.2         57.4         65.6         73.8           82 </CurrentAxis>
+                <TemperatureAxis> 25 100 175</TemperatureAxis>
+                <VoltageDrop scale="1">
+                    <Temperature> -1.6971     -1.5274     -1.3577      -1.188     -1.0182    -0.84854    -0.67883    -0.50912    -0.33942    -0.16971           0     0.16971     0.33942     0.50912     0.67883     0.84854      1.0182       1.188      1.3577      1.5274      1.6971 </Temperature>
+                    <Temperature> -2.3225     -2.0902      -1.858     -1.6257     -1.3935     -1.1612    -0.92899    -0.69674    -0.46449    -0.23225           0     0.23225     0.46449     0.69674     0.92899      1.1612      1.3935      1.6257       1.858      2.0902      2.3225 </Temperature>
+                    <Temperature> -3.1355      -2.822     -2.5084     -2.1949     -1.8813     -1.5678     -1.2542    -0.94066    -0.62711    -0.31355           0     0.31355     0.62711     0.94066      1.2542      1.5678      1.8813      2.1949      2.5084       2.822      3.1355 </Temperature>
+                </VoltageDrop>
+            </ConductionLoss>
+            <ConductionLoss gate="off">
+                <ComputationMethod>Table and formula</ComputationMethod>
+                <Formula>(V_GS_low&lt; 0)*v + (V_GS_low == 0)*lookup('VGS_0V', i,T)</Formula>
+                <CurrentAxis> -82        -73.8        -65.6        -57.4        -49.2          -41        -32.8        -24.6        -16.4         -8.2            0 </CurrentAxis>
+                <TemperatureAxis> 25 175</TemperatureAxis>
+                <VoltageDrop scale="1">
+                    <Temperature> -4.9695        -4.8     -4.6268     -4.4499     -4.2692     -4.0847     -3.8964     -3.7044     -3.5086     -3.3091     -3.1058 </Temperature>
+                    <Temperature> -4.758     -4.5906       -4.42      -4.246     -4.0687     -3.8882     -3.7043     -3.5171     -3.3266     -3.1328     -2.9357 </Temperature>
+                </VoltageDrop>
+            </ConductionLoss>
+        </SemiconductorData>
+        <ThermalModel>
+            <Branch type="Foster" convertToCauer = "false">
+                <RTauElement R="0.03552" Tau="0.00058962"/>
+                <RTauElement R="0.1156" Tau="0.0053987"/>
+                <RTauElement R="0.13878" Tau="0.017214"/>
+                <RTauElement R="0.017585" Tau="4.2143e-05"/>
+            </Branch>
+        </ThermalModel>
+        <Comment>
+            <Line>Infineon CoolSiC? MOSFET PLECS Model</Line>
+            <Line>MOSFET chip loss model for IMZA120R020M1H </Line>
+            <Line>beta version (1)</Line>
+            <Line></Line>
+            <Line>Date: 250716 </Line>
+            <Line></Line>
+            <Line>*** DISCLAIMER ***</Line>
+            <Line>Models provided by INFINEON are not warranted by INFINEON as  fully representing all of the specifications and operating  characteristics of the semiconductor product to which the  model relates. The model describes the characteristics of a typical device. In all cases, the current data sheet information for a given device is the final design guideline and the only actual performance specification.                                    </Line>
+            <Line>Although models can be a useful tool in evaluating device performance, they cannot model exact device performance under all conditions, nor are they intended to replace bread-boarding for final verification. INFINEON therefore does not assume any liability arising from their use. INFINEON reserves the right to change models without prior notice.</Line>
+        </Comment>
+    </Package>
+</SemiconductorLibrary>
